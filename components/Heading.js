@@ -19,5 +19,5 @@ export const Heading = ({
     >
       {children}
     </Comp>
-  );
-};
+  )
+}

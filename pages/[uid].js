@@ -19,13 +19,11 @@ export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("page", params.uid, { lang: locale });
-  const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
 
   return {
     props: {
       page,
-      navigation,
       settings,
     },
   };
