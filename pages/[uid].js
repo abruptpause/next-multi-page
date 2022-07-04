@@ -7,7 +7,7 @@ import { components } from "../slices";
 const Page = ({ page }) => {
   return (
     <>
-      <div><h1>THIS IS A UID PAGE</h1></div>
+      <div><h1>THIS IS A UID PAGE V2</h1></div>
       <SliceZone slices={page.data.slices} components={components} />
     </>
   );
