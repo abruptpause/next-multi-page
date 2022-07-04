@@ -1,22 +1,15 @@
-import Head from "next/head";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../prismicio";
 import { components } from "../slices";
-import { Layout } from "../components/Layout";
 
-const Page = ({ page, navigation, settings }) => {
+const Page = ({ page }) => {
   return (
-    <Layout navigation={navigation} settings={settings}>
-      <Head>
-        <title>
-          {prismicH.asText(page.data.title)} |{" "}
-          {prismicH.asText(settings.data.siteTitle)}
-        </title>
-      </Head>
+    <>
+      <div><h1>THIS IS A UID PAGE</h1></div>
       <SliceZone slices={page.data.slices} components={components} />
-    </Layout>
+    </>
   );
 };
 
@@ -39,17 +32,17 @@ export async function getStaticProps({ params, locale, previewData }) {
 }
 
 export async function getStaticPaths() {
-  const client = createClient();
+  const client = createClient()
 
-  const pages = await client.getAllByType("page", { lang: "*" });
+  const pages = await client.getAllByType("page", { lang: "*" })
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
-        locale: page.lang,
-      };
+        locale: page.lang
+      }
     }),
-    fallback: false,
-  };
+    fallback: false
+  }
 }
